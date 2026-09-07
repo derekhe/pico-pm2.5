@@ -1,0 +1,10 @@
+/build/
+/build-host/
+/.cache/
+*.uf2
+!/dist/*.uf2
+*.elf
+*.bin
+*.hex
+*.map
+__pycache__/

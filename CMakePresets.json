@@ -1,0 +1,38 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "pico",
+      "displayName": "RP2040 firmware",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "PICO_BOARD": "pico",
+        "PICO_PLATFORM": "rp2040",
+        "picotool_DIR": "$env{USERPROFILE}/.pico-sdk/picotool/2.3.1/picotool"
+      }
+    },
+    {
+      "name": "host-tests",
+      "displayName": "Host tests",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-host",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "PM25_HOST_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "pico", "configurePreset": "pico" },
+    { "name": "host-tests", "configurePreset": "host-tests" }
+  ],
+  "testPresets": [
+    {
+      "name": "host-tests",
+      "configurePreset": "host-tests",
+      "output": { "outputOnFailure": true }
+    }
+  ]
+}

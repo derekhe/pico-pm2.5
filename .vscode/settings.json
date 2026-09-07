@@ -1,0 +1,5 @@
+{
+  "raspberry-pi-pico.cmakeAutoConfigure": true,
+  "raspberry-pi-pico.useCmakeTools": false,
+  "cmake.configureOnOpen": false
+}
